@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="vbMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Controller">
+   <children>
+      <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Simple Calculation" wrappingWidth="155.34375">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Text>
+            <ImageView fx:id="imgInfo1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="146.0" prefWidth="700.0">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <VBox fx:id="vBOxygen" alignment="TOP_CENTER" disable="true">
+                     <children>
+                        <Slider fx:id="sDOxygen" blockIncrement="1.0" majorTickUnit="7.0" max="50.0" min="22.0" minorTickCount="1" nodeOrientation="RIGHT_TO_LEFT" orientation="VERTICAL" prefHeight="133.0" prefWidth="0.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                        <Label text="Oxygen" textAlignment="CENTER">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <StackPane prefHeight="144.0">
+                     <children>
+                        <ImageView fx:id="imgCylinder" fitHeight="144.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                        <ProgressBar fx:id="pBCylinder" prefHeight="40.0" prefWidth="110.0" progress="0.0" rotate="-90.0" />
+                        <Label fx:id="lbNitrogen" text="100% N2" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets top="20.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label fx:id="lbOxygen" text="0% O2" textFill="WHITE" StackPane.alignment="BOTTOM_CENTER">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets bottom="20.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <VBox fx:id="vBNitrogen" alignment="TOP_CENTER" disable="true">
+                     <children>
+                        <Slider fx:id="sDNitrogen" blockIncrement="1.0" majorTickUnit="7.0" max="78.0" min="50.0" minorTickCount="1" orientation="VERTICAL" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="78.0">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin></Slider>
+                        <Label text="Nitrogen" textAlignment="CENTER">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="-15.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </HBox>
+            <VBox alignment="CENTER_LEFT" minWidth="112.0" prefHeight="133.0" prefWidth="112.0">
+               <children>
+                  <RadioButton fx:id="rbMOD" mnemonicParsing="false" text="MOD">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="rbPP" mnemonicParsing="false" text="PP">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="rbBMix" mnemonicParsing="false" text="BEST MIX">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="rbEAD" mnemonicParsing="false" text="EAD">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" minWidth="150.0">
+               <children>
+                  <Text fx:id="txtLabel1" strokeType="OUTSIDE" strokeWidth="0.0" text="-" />
+                  <TextField id="tvValue1" fx:id="tvValue1" promptText="..." VBox.vgrow="ALWAYS" />
+                  <Text fx:id="txtLabel2" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField id="tvValue2" fx:id="tvValue2" nodeOrientation="LEFT_TO_RIGHT" promptText="..." VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TextField>
+                  <Button fx:id="btnCal" mnemonicParsing="false" text="Calculate">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </VBox>
+            <TextArea fx:id="txtResult" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="133.0" prefWidth="292.0" wrapText="true">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </TextArea>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <Line startX="800.0" stroke="#616161" strokeWidth="0.5" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox fx:id="spComplex" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="800.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tables" wrappingWidth="64.34375">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Text>
+                        <ImageView fx:id="imgInfo2" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0">
+                     <children>
+                        <RadioButton fx:id="rbEAD2" mnemonicParsing="false" text="EAD" />
+                        <RadioButton fx:id="rbPP2" mnemonicParsing="false" text="Partial Pressure">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </RadioButton>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="349.0" prefWidth="337.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="60.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fraction of O2 (%)" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Depth (m)">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="95.0">
+                           <children>
+                              <Spinner fx:id="spiO2Start" prefWidth="150.0" />
+                              <Spinner fx:id="spiDepthStart" prefWidth="150.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Spinner>
+                           </children>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="95.0">
+                           <children>
+                              <Spinner fx:id="spiO2End" prefWidth="150.0" />
+                              <Spinner fx:id="spiDepthEnd" prefWidth="150.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Spinner>
+                           </children>
+                           <opaqueInsets>
+                              <Insets left="10.0" />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </HBox>
+                  <Button fx:id="btnCal2" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" text="Print Table">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <VBox fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="190.0" prefWidth="0.0" />
+         </children>
+      </HBox>
+      <Line startX="800.0" strokeWidth="0.5" />
+      <VBox prefHeight="345.0" prefWidth="800.0">
+         <children>
+            <ScrollPane fx:id="spTable" prefHeight="345.0" prefWidth="800.0" style="-fx-background-color: #A9A9A9;">
+               <content>
+                  <Label alignment="CENTER" prefHeight="293.0" prefWidth="798.0" style="-fx-background-color: #A9A9A9;" text="There is no shown table!" textFill="#4d4d4d">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </content></ScrollPane>
+         </children></VBox>
+   </children>
+</VBox>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_scuba_diving_javafx" default="compile.module.scuba_diving_javafx">
+  <dirname property="module.scuba_diving_javafx.basedir" file="${ant.file.module_scuba_diving_javafx}"/>
+  
+  <property name="module.jdk.home.scuba_diving_javafx" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.scuba_diving_javafx" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.scuba_diving_javafx" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.scuba_diving_javafx" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="scuba_diving_javafx.output.dir" value="${module.scuba_diving_javafx.basedir}/out/production/scuba_diving_javafx"/>
+  <property name="scuba_diving_javafx.testoutput.dir" value="${module.scuba_diving_javafx.basedir}/out/test/scuba_diving_javafx"/>
+  
+  <path id="scuba_diving_javafx.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="scuba_diving_javafx.module.production.classpath">
+    <path refid="${module.jdk.classpath.scuba_diving_javafx}"/>
+  </path>
+  
+  <path id="scuba_diving_javafx.runtime.production.module.classpath">
+    <pathelement location="${scuba_diving_javafx.output.dir}"/>
+  </path>
+  
+  <path id="scuba_diving_javafx.module.classpath">
+    <path refid="${module.jdk.classpath.scuba_diving_javafx}"/>
+    <pathelement location="${scuba_diving_javafx.output.dir}"/>
+    <pathelement location="${basedir}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/lib/junit-4.12.jar"/>
+  </path>
+  
+  <path id="scuba_diving_javafx.runtime.module.classpath">
+    <pathelement location="${scuba_diving_javafx.testoutput.dir}"/>
+    <pathelement location="${scuba_diving_javafx.output.dir}"/>
+    <pathelement location="${basedir}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/lib/junit-4.12.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.scuba_diving_javafx">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.scuba_diving_javafx">
+    <patternset refid="excluded.from.module.scuba_diving_javafx"/>
+  </patternset>
+  
+  <path id="scuba_diving_javafx.module.sourcepath">
+    <dirset dir="${module.scuba_diving_javafx.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="scuba_diving_javafx.module.test.sourcepath">
+    <dirset dir="${module.scuba_diving_javafx.basedir}">
+      <include name="tests"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.scuba_diving_javafx" depends="compile.module.scuba_diving_javafx.production,compile.module.scuba_diving_javafx.tests" description="Compile module scuba_diving_javafx"/>
+  
+  <target name="compile.module.scuba_diving_javafx.production" depends="register.custom.compilers" description="Compile module scuba_diving_javafx; production classes">
+    <mkdir dir="${scuba_diving_javafx.output.dir}"/>
+    <javac2 destdir="${scuba_diving_javafx.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.scuba_diving_javafx}/javac">
+      <compilerarg line="${compiler.args.scuba_diving_javafx}"/>
+      <bootclasspath refid="scuba_diving_javafx.module.bootclasspath"/>
+      <classpath refid="scuba_diving_javafx.module.production.classpath"/>
+      <src refid="scuba_diving_javafx.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.scuba_diving_javafx"/>
+    </javac2>
+    
+    <copy todir="${scuba_diving_javafx.output.dir}">
+      <fileset dir="${module.scuba_diving_javafx.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.scuba_diving_javafx.tests" depends="register.custom.compilers,compile.module.scuba_diving_javafx.production" description="compile module scuba_diving_javafx; test classes" unless="skip.tests">
+    <mkdir dir="${scuba_diving_javafx.testoutput.dir}"/>
+    <javac2 destdir="${scuba_diving_javafx.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.scuba_diving_javafx}/javac">
+      <compilerarg line="${compiler.args.scuba_diving_javafx}"/>
+      <bootclasspath refid="scuba_diving_javafx.module.bootclasspath"/>
+      <classpath refid="scuba_diving_javafx.module.classpath"/>
+      <src refid="scuba_diving_javafx.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.scuba_diving_javafx"/>
+    </javac2>
+    
+    <copy todir="${scuba_diving_javafx.testoutput.dir}">
+      <fileset dir="${module.scuba_diving_javafx.basedir}/tests">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.scuba_diving_javafx" description="cleanup module">
+    <delete dir="${scuba_diving_javafx.output.dir}"/>
+    <delete dir="${scuba_diving_javafx.testoutput.dir}"/>
+  </target>
+</project>
